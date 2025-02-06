@@ -26,7 +26,14 @@ public final class OwnerGroup extends Organization{
     //
     // Instance Methods
     //
+    @Override
+    public void displayAbout(){
 
+    }
+    @Override
+    public void displayMission(){
+
+    }
     //
     // Override
     //

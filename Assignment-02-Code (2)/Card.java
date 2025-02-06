@@ -33,7 +33,12 @@ public final class Card {
     //
     // Additional Instance Methods
     //
-
+    public static void printCardOpening (){
+        System.out.print(
+                "----------------------------------------------------------------------\n" +
+                "---------------------- SF GIANTS THANK YOU ---------------------------\n" +
+                "----------------------------------------------------------------------");
+    }
 
     //
     // Language

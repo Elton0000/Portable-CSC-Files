@@ -9,6 +9,7 @@
  */
 
 package assignment02PartB;
+import java.util.Scanner;
 // Please organize all the given files in 1 same package
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
 
@@ -29,7 +30,7 @@ public final class Language {
     //
     // Instance Data Fields
     //
-
+    private String language;
     //
     // Constructors
     //
@@ -51,7 +52,28 @@ public final class Language {
     //
     // Static Methods
     //
+    public static void displayAppHeader() {
+        Card.printCardOpening();
+    }
+    public static Language setLanguagePreference() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Language: ");
+        String userInput = input.nextLine().toLowerCase();
+        while (!userInput.startsWith("eng") || !userInput.startsWith("chi") || !userInput.startsWith("fre") || !userInput.startsWith("spa") ||!userInput.startsWith("ali")) {
+            System.out.print("Language: UNSUPPORTED language. Please enter your language.");
 
+            userInput = input.nextLine().toLowerCase();
+        }
+
+        switch (userInput) {
+            case "eng" -> userInput = "english";
+            case "chi" -> userInput = "chinese";
+            case "fre" -> userInput = "french";
+            case "spa" -> userInput = "spanish";
+            default -> userInput = "alien";
+        }
+        return new Language(userInput);
+    }
     //
     // Additional Static Methods
     //
@@ -59,7 +81,24 @@ public final class Language {
     //
     // Instance Methods
     //
-
+    public void populateAlienPhrases() {
+        this.language = defaultAlienSound;
+    }
+    public void populateChinesePhrases() {
+        populateEnglishPhrases();
+    }
+    public void populateFrenchPhrases() {
+        populateEnglishPhrases();
+    }
+    public void populateSpanishPhrases() {
+        populateEnglishPhrases();
+    }
+    public void populateYourLanguagePhrases() {
+        populateEnglishPhrases();
+    }
+    public void populateEnglishPhrases() {
+        this.language = "English";
+    }
     //
     // Language
     //

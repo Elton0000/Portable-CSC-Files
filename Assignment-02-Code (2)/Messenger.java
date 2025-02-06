@@ -52,7 +52,7 @@ public final class Messenger {
         return Messenger.config;
     }
     private static void start() {
-        Messenger.config.getStdOutStdErrTee().startLog();
+        //Messenger.config.getStdOutStdErrTee().startLog();
         Messenger.config.setPreferences();
     }
     private static void chat() {

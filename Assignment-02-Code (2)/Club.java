@@ -31,7 +31,14 @@ public final class Club extends Organization {
     //
     // Instance Methods
     //
+    @Override
+    public void displayAbout(){
 
+    }
+    @Override
+    public void displayMission(){
+
+    }
     //
     // Additional Instance Methods
     //
