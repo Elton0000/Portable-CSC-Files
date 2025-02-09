@@ -36,5 +36,9 @@ public final class Player extends Person {
 
     //
     // @Override
+    @Override
+    public void sayGreeting(String string) {
+
+    }
     //
 }

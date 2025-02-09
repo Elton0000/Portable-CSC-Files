@@ -20,13 +20,15 @@ public final class University extends Organization {
     //
     // Instance Data Fields
     //
-
+    private String uniName;
     //
     // Constructors
     //
     public University() {
     }
-
+    public University(String uniName) {
+        this.uniName = uniName;
+    }
     //
     // Instance Methods
     //

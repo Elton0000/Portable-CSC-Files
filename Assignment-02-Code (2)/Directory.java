@@ -35,7 +35,9 @@ public final class Directory {
     //
     // Instance Methods
     //
-
+    public String getPath() {
+        return " ";
+    }
     //
     // Language
     //

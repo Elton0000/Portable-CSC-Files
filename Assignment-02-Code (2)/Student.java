@@ -40,5 +40,9 @@ public final class Student extends Person {
 
     //
     // Override
+    @Override
+    public void sayGreeting(String string) {
+
+    }
     //
 }

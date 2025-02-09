@@ -39,7 +39,12 @@ public class StdOutStdErrTee extends OutputStream {
     //
     // Instance Methods
     //
-
+    public String getStdOutFilePath() {
+        return "";
+    }
+    public String getStdErrFilePath() {
+        return "";
+    }
     //
     // Additional Methods
     //

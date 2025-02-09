@@ -59,9 +59,8 @@ public final class Language {
         Scanner input = new Scanner(System.in);
         System.out.print("Language: ");
         String userInput = input.nextLine().toLowerCase();
-        while (!userInput.startsWith("eng") || !userInput.startsWith("chi") || !userInput.startsWith("fre") || !userInput.startsWith("spa") ||!userInput.startsWith("ali")) {
+        while (!userInput.startsWith("eng") && !userInput.startsWith("chi") && !userInput.startsWith("fre") && !userInput.startsWith("spa") &&!userInput.startsWith("ali")) {
             System.out.print("Language: UNSUPPORTED language. Please enter your language.");
-
             userInput = input.nextLine().toLowerCase();
         }
 
@@ -98,6 +97,22 @@ public final class Language {
     }
     public void populateEnglishPhrases() {
         this.language = "English";
+    }
+
+    public String getLanguage() {
+        return this.language;
+    }
+    public String getUniversityPhrase(int x) {
+        return " ";
+    }
+    public String getClubPhrase(int x) {
+        return " ";
+    }
+    public String getConfigPhrase(int x) {
+        return " ";
+    }
+    public String getGreetingPhrase(int x) {
+        return " ";
     }
     //
     // Language

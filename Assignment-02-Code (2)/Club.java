@@ -17,13 +17,15 @@ public final class Club extends Organization {
     //
     // Instance Data Fields
     //
-
+    private String clubName;
     //
     // Constructors
     //
     public Club() {
     }
-
+    public Club(String clubName) {
+        this.clubName = clubName;
+    }
     //
     // Static Methods
     //
@@ -31,6 +33,9 @@ public final class Club extends Organization {
     //
     // Instance Methods
     //
+    public static String getOfficialSong() {
+        return " ";
+    }
     @Override
     public void displayAbout(){
 

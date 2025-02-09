@@ -59,7 +59,7 @@ public final class Messenger {
         (new ChatSession(Messenger.config.getClub(), Messenger.config.getUniversity())).runChatSession();
     }
     private static void stop() {
-        Messenger.config.getStdOutStdErrTee().stopLog();
+        //Messenger.config.getStdOutStdErrTee().stopLog();
         // LogFileDriver.run(); // Please temporarily uncomment this line to run LogFileDriver.
     }
 }
