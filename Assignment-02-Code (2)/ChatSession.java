@@ -32,7 +32,6 @@ public final class ChatSession {
     //
     // Instance Methods
     //
-
     //
     // Additional Instance Methods
     //

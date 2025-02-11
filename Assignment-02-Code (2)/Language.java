@@ -60,7 +60,9 @@ public final class Language {
         System.out.print("Language: ");
         String userInput = input.nextLine().toLowerCase();
         while (!userInput.startsWith("eng") && !userInput.startsWith("chi") && !userInput.startsWith("fre") && !userInput.startsWith("spa") &&!userInput.startsWith("ali")) {
-            System.out.print("Language: UNSUPPORTED language. Please enter your language.");
+            System.out.print("Language: UNSUPPORTED language. Please enter your language.\n");
+            System.out.print("Language: English, Chinese, French, Spanish, Alien\n");
+            System.out.print("Language: ");
             userInput = input.nextLine().toLowerCase();
         }
 
@@ -109,7 +111,9 @@ public final class Language {
         return " ";
     }
     public String getConfigPhrase(int x) {
-        return " ";
+        switch (x) {
+            default -> {return "Oma";}
+        }
     }
     public String getGreetingPhrase(int x) {
         return " ";

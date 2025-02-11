@@ -12,6 +12,10 @@ package assignment02PartB;
 // Please organize all the given files in 1 same package
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
 import java.util.Scanner;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class Timer {
 
@@ -23,13 +27,20 @@ public class Timer {
     // Instance Data Fields
     //
     private String timeZone;
+    private String timeZoneLong;
+    private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     //
     // Constructors
     //
     public Timer() {
     }
     public Timer(String timeZone) {
-
+        switch(timeZone) {
+            case "est" -> {this.timeZone = "CST"; this.timeZoneLong = "Central Standard Time in Day Light Saving"; dateFormat.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));}
+            case "cst" -> {this.timeZone = "EST"; this.timeZoneLong = "Eastern Standard Time in Day Light Saving";}
+            default -> {this.timeZone = "PDT"; this.timeZoneLong = "Pacific Standard Time in Day Light Saving";}
+        }
+        this.timeZone = timeZone;
     }
 
     //
