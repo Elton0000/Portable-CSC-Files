@@ -65,17 +65,22 @@ public class Timer {
     //
     // Additional Static Methods
     //
-
+    public static DateFormat getFormattedTime() {
+       return DateFormat.getDateTimeInstance();
+    }
     //
     // Instance Methods
     //
     public String getTimeZoneFormatted() {
-        return this.timeZone;
+        return this.timeZoneLong;
     }
     //
     // Additional Instance Methods
     //
-
+    @Override
+    public String toString() {
+        return "Timer: ";
+    }
     //
     // Language
     //

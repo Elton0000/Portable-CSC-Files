@@ -98,25 +98,50 @@ public final class Language {
         populateEnglishPhrases();
     }
     public void populateEnglishPhrases() {
-        this.language = "English";
+        this.language = "ENGLISH";
     }
 
     public String getLanguage() {
         return this.language;
     }
     public String getUniversityPhrase(int x) {
-        return " ";
+        return Config.getDefaultUniversity();
     }
     public String getClubPhrase(int x) {
-        return " ";
+        return Config.getDefaultClub();
     }
     public String getConfigPhrase(int x) {
         switch (x) {
-            default -> {return "Oma";}
-        }
+                case 1 -> {return "Language: ";}
+                case 2 -> {return "Time Zone: ";}
+                case 3 -> {return "Color Sequences: ";}
+                case 4 -> {return "Standard Output Log: ";}
+                case 5 -> {return "Standard Error Log: ";}
+                case 6 -> {return "Receipt Log: ";}
+                case 7 -> {return "./src/assignment02PartB/log/Receipt-*-*.log";}
+                case 8 -> {return "Default University: ";}
+                case 9 -> {return "Default Club: ";}
+                default -> {return Card.getDashes();}
+            }
     }
     public String getGreetingPhrase(int x) {
-        return " ";
+        switch (x) {
+            case 1 -> {return " \n";}
+            case 2 -> {return " \n";}
+            case 3 -> {return " \n";}
+            case 4 -> {return " \n";}
+            case 5 -> {return " \n";}
+            case 6 -> {return " \n";}
+            case 7 -> {return " \n";}
+            case 8 -> {return " \n";}
+            case 9 -> {return " \n";}
+            default -> {return Card.getDashes();}
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Language: ";
     }
     //
     // Language

@@ -22,6 +22,7 @@ public final class Club extends Organization {
     // Constructors
     //
     public Club() {
+        super();
     }
     public Club(String clubName) {
         this.clubName = clubName;

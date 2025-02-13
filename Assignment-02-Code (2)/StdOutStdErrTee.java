@@ -40,10 +40,10 @@ public class StdOutStdErrTee extends OutputStream {
     // Instance Methods
     //
     public String getStdOutFilePath() {
-        return "";
+        return "./src/assignment02PartB/log/StandardOut.log";
     }
     public String getStdErrFilePath() {
-        return "";
+        return "./src/assignment02PartB/log/StandardErr.log";
     }
     //
     // Additional Methods
