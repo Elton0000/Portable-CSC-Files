@@ -56,7 +56,6 @@ public final class Messenger {
         Messenger.config.setPreferences();
     }
     private static void chat() {
-        System.out.print(Timer.getFormattedTime());
         (new ChatSession(Messenger.config.getClub(), Messenger.config.getUniversity())).runChatSession();
     }
     private static void stop() {

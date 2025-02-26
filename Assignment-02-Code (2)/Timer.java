@@ -28,7 +28,7 @@ public class Timer {
     //
     private String timeZone;
     private String timeZoneLong;
-    private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss  [SSSS 'ms'] a");
     //
     // Constructors
     //
@@ -36,9 +36,9 @@ public class Timer {
     }
     public Timer(String timeZone) {
         switch(timeZone) {
-            case "est" -> {this.timeZone = "CST"; this.timeZoneLong = "Central Standard Time in Day Light Saving"; dateFormat.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));}
-            case "cst" -> {this.timeZone = "EST"; this.timeZoneLong = "Eastern Standard Time in Day Light Saving";}
-            default -> {this.timeZone = "PDT"; this.timeZoneLong = "Pacific Standard Time in Day Light Saving";}
+            case "est" -> {timeZone = "EST"; this.timeZoneLong = "Eastern Standard Time in Day Light Saving"; dateFormat.setTimeZone(TimeZone.getTimeZone("America/New_York"));}
+            case "cst" -> {timeZone = "CST"; this.timeZoneLong = "Central Standard Time in Day Light Saving"; dateFormat.setTimeZone(TimeZone.getTimeZone("America/Chicago"));}
+            default -> {timeZone = "PDT"; this.timeZoneLong = "Pacific Standard Time in Day Light Saving"; dateFormat.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));}
         }
         this.timeZone = timeZone;
     }
@@ -50,24 +50,40 @@ public class Timer {
         Scanner input = new Scanner(System.in);
         System.out.print("Time Zone: ");
         String timeType = input.nextLine().toLowerCase();
+
         while (!timeType.startsWith("p") && !timeType.startsWith("e") && !timeType.startsWith("c")) {
             System.out.print("Time Zone: INVALID time zone. Please enter your time zone.\n");
             System.out.print("Time Zone: ");
             timeType = input.nextLine().toLowerCase();
         }
-        switch (timeType) {
-            case "e": timeType = "est";
-            case "c": timeType = "cst";
-            default: timeType = "pst";
+
+        if (timeType.startsWith("e")) {
+            timeType = "est";
         }
+        else if (timeType.startsWith("c")) {
+            timeType = "cst";
+        }
+        else {
+            timeType = "pst";
+        }
+
         return new Timer(timeType);
     }
     //
     // Additional Static Methods
     //
-    public static DateFormat getFormattedTime() {
-       return DateFormat.getDateTimeInstance();
+    public void getFormattedTime() {
+       System.out.print(getDateFormat().format(new Date()) + " " + this.getTimeZone() + " - Chat session started.\n");
     }
+
+    public String getTimeZone() {
+        return this.timeZone;
+    }
+
+    private DateFormat getDateFormat() {
+        return this.dateFormat;
+    }
+
     //
     // Instance Methods
     //

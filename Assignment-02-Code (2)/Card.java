@@ -37,7 +37,7 @@ public final class Card {
     // Additional Instance Methods
     //
     public static void printCardOpening (){
-        System.out.printf("%25s%25s%25s%69s", dashes,thankYou,dashes,poweredBy);
+        System.out.printf("%25s%25s%25s%n%69s", dashes,thankYou,dashes,poweredBy);
     }
     public static String getDashes() {
         return dashes;

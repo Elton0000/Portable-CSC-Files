@@ -16,7 +16,7 @@ public final class OwnerGroup extends Organization{
     //
     // Data fields
     //
-
+    private static String title = "San Francisco Baseball Associates LLC";
     //
     // Constructors
     //
@@ -33,6 +33,9 @@ public final class OwnerGroup extends Organization{
     @Override
     public void displayMission(){
 
+    }
+    public static String getTitle () {
+        return title;
     }
     //
     // Override
