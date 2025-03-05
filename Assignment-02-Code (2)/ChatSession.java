@@ -51,11 +51,17 @@ public final class ChatSession {
         System.out.print(myStudent.getName() + ": ");
         Player myPlayer = Player.getPlayer();
         System.out.print(Club.getClubShortName() + ": Thank you. We are connecting you with " + myPlayer.getPlayerName() + "...\n. . . . . \n");
-        System.out.println(Card.getDashes());
         chat(myStudent,myPlayer);
     }
     private void chat(Student myStudent, Player myPlayer) {
+        Scanner input = new Scanner(System.in);
         myPlayer.displayAbout();
+        myPlayer.sayGreeting(myStudent.getName());
+        System.out.print(myStudent.getName() + ": ");
+        input.nextLine();
+        int howMany = myPlayer.cardAmount(myStudent);
+        myPlayer.automated(2);
+
     }
     private void runQuiz() {
     }

@@ -9,6 +9,7 @@
  */
 
 package assignment02PartB;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 // Please organize all the given files in 1 same package
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
@@ -58,7 +59,7 @@ public final class Player extends Person {
                 System.out.println("Too many failed attempts.\nSystem exit initiated.\n.  .  .  .");
                 System.exit(0);
             }
-            System.out.println("Please enter a valid player name. [" + errorCounter  + "] (! to exit)");
+            System.out.print("Please enter a valid player name. [" + errorCounter  + "] (! to exit): ");
             playerName = input.nextLine();
         }
 
@@ -85,6 +86,9 @@ public final class Player extends Person {
     public int getMLB_Debut() {
         return MLB_Debut;
     }
+    public String getNameNumber() {
+        return this.getPlayerName() + ", " + this.getNumber() + ": ";
+    }
     //
     // Additional Instance Methods
     //
@@ -97,8 +101,45 @@ public final class Player extends Person {
         System.out.printf("%-25s %-50s %n", "Bats: ", getBats());
         System.out.printf("%-25s %-50s %n", "Throws: ", getThrows());
         System.out.printf("%-25s %-50d %n", "MLB Debut:", 2009);
-        System.out.println(Card.getDashes() + "\n");
-        System.out.println(". . . . . \n");
+        System.out.println(Card.getDashes());
+        System.out.println(". . . . . ");
+    }
+    public int cardAmount(Student myStudent) {
+        Scanner input = new Scanner(System.in);
+        System.out.println(this.getNameNumber() + "Likewise, " + myStudent.getName() + ". Very nice chatting w/ you.");
+        automated(1);
+        int howMany = -1;
+        int errorCounter = 4;
+
+        while (errorCounter > 0 && howMany <= 0) {
+            try {
+                System.out.print(myStudent.getName() + ": " );
+                howMany = input.nextInt();
+
+            } catch (InputMismatchException e) {
+                if (errorCounter == 1) {
+                    break;
+                }
+                errorCounter--;
+                System.out.println( e.getCause() + "\nPlease enter an INTEGER. " + errorCounter + " tries left.");
+                automated(1);
+            }
+            input.nextLine();
+        }
+
+        if (howMany < 0) {
+            howMany = 0;
+        }
+        return howMany;
+    }
+    public void automated (int message) {
+        switch (message) {
+            case 1 -> {System.out.println(this.getNameNumber() + "How many SF Giants Thank You cards would you like to order?");}
+            case 2 -> {System.out.println(this.getNameNumber() + " In 3 lines, please provide\n[1] Recipient name\n" +
+                    "[2] Art symbol (a character)\n" +
+                    "[3] Message to recipient\n");}
+            default -> {}
+        }
     }
     //
     // Language
@@ -107,8 +148,9 @@ public final class Player extends Person {
     //
     // @Override
     @Override
-    public void sayGreeting(String string) {
-
+    public void sayGreeting(String studentName) {
+        System.out.println(this.getNameNumber() +  "Hello, " + studentName + ". C-O-N-G-R-A-T-U-L-A-T-I-O-N-S!");
+        System.out.println(this.getNameNumber() + Config.getDefaultUniversity().toUpperCase() + ". Way to go!");
     }
     //
 }
