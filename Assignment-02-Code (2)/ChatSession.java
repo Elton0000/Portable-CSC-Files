@@ -61,6 +61,7 @@ public final class ChatSession {
         input.nextLine();
         int howMany = myPlayer.cardAmount(myStudent);
         myPlayer.automated(2);
+        myPlayer.getCardInfo(myStudent,howMany);
 
     }
     private void runQuiz() {

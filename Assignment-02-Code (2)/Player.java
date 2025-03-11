@@ -118,10 +118,11 @@ public final class Player extends Person {
 
             } catch (InputMismatchException e) {
                 if (errorCounter == 1) {
-                    break;
+                    System.out.println("Too many incorrect responses.\nSystem exiting...");
+                    System.exit(0);
                 }
                 errorCounter--;
-                System.out.println( e.getCause() + "\nPlease enter an INTEGER. " + errorCounter + " tries left.");
+                System.out.println( e.getLocalizedMessage() + "\nPlease enter an INTEGER. " + errorCounter + " tries left.");
                 automated(1);
             }
             input.nextLine();
@@ -131,6 +132,22 @@ public final class Player extends Person {
             howMany = 0;
         }
         return howMany;
+    }
+    public void getCardInfo(Student myStudent, int howMany) {
+        String [] cardInfo = new String[howMany * 3];
+        Scanner input = new Scanner(System.in);
+
+        for (int i = 1; i <= howMany; i++) {
+        System.out.println(this.getNameNumber() + "Card #" + i);
+        System.out.print(myStudent.getName() + ": [1] ");
+        cardInfo[3 * i - 3] = input.nextLine();
+        System.out.print(myStudent.getName() + ": [2] ");
+        cardInfo[3 * i - 2] = input.nextLine();
+        System.out.print(myStudent.getName() + ": [3] ");
+        cardInfo[3 * i - 1] = input.nextLine();
+        }
+        System.out.println(this.getNameNumber() + "Thanks, " + myStudent.getName() + ". Please confirm your order:\n\n");
+        
     }
     public void automated (int message) {
         switch (message) {
