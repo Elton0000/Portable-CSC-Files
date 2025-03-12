@@ -140,14 +140,22 @@ public final class Player extends Person {
         for (int i = 1; i <= howMany; i++) {
         System.out.println(this.getNameNumber() + "Card #" + i);
         System.out.print(myStudent.getName() + ": [1] ");
-        cardInfo[3 * i - 3] = input.nextLine();
+        cardInfo[3 * i - 3] = input.nextLine(); //Recipient Name
         System.out.print(myStudent.getName() + ": [2] ");
-        cardInfo[3 * i - 2] = input.nextLine();
+        cardInfo[3 * i - 2] = input.nextLine(); //Art Symbol
         System.out.print(myStudent.getName() + ": [3] ");
-        cardInfo[3 * i - 1] = input.nextLine();
+        cardInfo[3 * i - 1] = input.nextLine(); //Message
         }
         System.out.println(this.getNameNumber() + "Thanks, " + myStudent.getName() + ". Please confirm your order:\n\n");
-        
+
+        for (int j = 0; j < howMany; j++) {
+            try {
+                SFGiantsCardGenerator.generateSFGiantsCard(cardInfo[3 * j - 3],cardInfo[3 - j - 1],myStudent.getName(),myStudent.getEmail(),cardInfo[3 * j - 2].charAt(0),12, SFGiantsCardGenerator.ASCIIArtFont.ART_FONT_DIALOG.toString());
+            }
+            catch (java.lang.Exception) {
+
+            }
+        }
     }
     public void automated (int message) {
         switch (message) {
