@@ -52,6 +52,7 @@ public final class ChatSession {
         Player myPlayer = Player.getPlayer();
         System.out.print(Club.getClubShortName() + ": Thank you. We are connecting you with " + myPlayer.getPlayerName() + "...\n. . . . . \n");
         chat(myStudent,myPlayer);
+        runQuiz(myStudent);
     }
     private void chat(Student myStudent, Player myPlayer) {
         Scanner input = new Scanner(System.in);
@@ -62,16 +63,40 @@ public final class ChatSession {
         int howMany = myPlayer.cardAmount(myStudent);
         myPlayer.automated(2);
         myPlayer.getCardInfo(myStudent,howMany);
-
+        System.out.print(myStudent.getName() + ": Very nice! Thank you, " + myPlayer.getPlayerName());
+        System.out.print(myPlayer.getNameNumber() + ":  Thank you again, " + myStudent.getName() + ". See you at your graduation ceremony!\n");
     }
-    private void runQuiz() {
+    private void runQuiz(Student myStudent) {
+        Scanner input = new Scanner(System.in);
+        Quiz newQuiz = new Quiz();
+        newQuiz.quizQuestion(1);
+        int tries = 2;
+        int questionNum = 2;
+        while (tries > 0 && questionNum < 8) {
+            newQuiz.quizQuestion(questionNum);
+            System.out.print(myStudent.getName() + ": ");
+            String stuAnswer = input.nextLine();
+            if (!newQuiz.quizAnswer(questionNum - 1, stuAnswer)) {
+                tries--;
+            }
+            questionNum++;
+        }
+        if (tries > 0) {
+            System.out.println("*** Congrats! You won FREE TICKETS to SF GIANTS Games ***");
+        }
+        else {
+            System.out.println("____ Please try again at your graduation ceremony. ____\n");
+        }
+        stopChatSession();
     }
     private void stopChatSession() {
+
     }
     public void runChatSession() {
         Messenger.getConfig().getTimer().getFormattedTime();
         //start I/O log?
         startChatSession();
+        Messenger.getConfig().getTimer().getFormattedTime();
     }
 
     //
