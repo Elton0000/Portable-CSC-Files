@@ -82,7 +82,11 @@ public final class LinkedBag<T> implements PrimaryDataStructureBagInterface<T> {
             System.out.print(nonDuplicate + " ");
         }
         System.out.print("\n[-] Removing the final 1D array items from the bag...\n");
-
+        for (T entriesToRemove : convertedArray2) {
+            while (remove(entriesToRemove)) {
+                remove(entriesToRemove);
+            }
+        }
         return false;
     }
     @Override
@@ -98,7 +102,35 @@ public final class LinkedBag<T> implements PrimaryDataStructureBagInterface<T> {
         }
         return myArray;
     }
+    private Node getReferenceTo(T entry) {
+        Node currentNode = firstNode;
+        while (currentNode != null) {
+            if (currentNode.data.equals(entry)) {
+                return currentNode;
+            }
+            currentNode = currentNode.next;
+        }
+        return null;
 
+    }
+    public boolean remove(T entry) {
+        Node toRemove = getReferenceTo(entry);
+        boolean removed = false;
+        if (toRemove != null) {
+            toRemove.data = firstNode.data;
+            firstNode = firstNode.next;
+            removed = true;
+            numberOfEntries--;
+            Node currentNode = firstNode;
+            while (currentNode != null) {
+                System.out.print(currentNode.data + " ");
+                currentNode = currentNode.next;
+            }
+            System.out.println();
+        }
+        return removed;
+
+    }
     private class Node {
         private T data;
         private Node next;
