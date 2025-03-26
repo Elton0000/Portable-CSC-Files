@@ -21,6 +21,24 @@ import java.util.Scanner;
 public class PalindromeChecker {
 
     private static boolean isPalindrome(String string) {
+        StackInterface<Character> checkThis = new OurStack<>();
+        string = string.replace(" ","");
+        string = string.replace(",","");
+        string = string.replace("!","");
+        string = string.replace(":","");
+        string = string.replace("?","");
+        string = string.replace("'","");
+        string = string.toLowerCase();
+
+        for (int i = 0; i < string.length(); i++ ) {
+            checkThis.push(string.charAt(i));
+        }
+        
+        String comparisonString = "";
+        while (!checkThis.isEmpty()) {
+            comparisonString += checkThis.pop();
+        }
+        return string.equals(comparisonString);
     } 
 
     //
