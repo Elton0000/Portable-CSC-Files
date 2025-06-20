@@ -6,23 +6,23 @@ public class Main {
         run();
     }
 
-    public static void run() {
+    private static void run() {
         int i = 1;
         Scanner input = new Scanner(System.in);
         System.out.print("Search [" + i + "]: ");
         String userInput = input.nextLine().trim().toLowerCase();
-        StringFormatter(userInput);
-//        ScanInput(userInput);
+        inputReceiver(userInput);
 
         while (!userInput.equals("!q")) {
             i++;
             System.out.print("Search [" + i + "]: ");
             userInput = input.nextLine().trim().toLowerCase();
-            StringFormatter(userInput);
-//            ScanInput(userInput);
+            inputReceiver(userInput);
         }
     }
-
+    private static void inputReceiver(String userInput) {
+        StringFormatter(userInput);
+    }
     public static void StringFormatter (String input) {
         String [] inputs = input.split(" ");
         if (inputs.length <= 4) {
@@ -32,7 +32,7 @@ public class Main {
             DictionaryKeywords.ScanInput(inputs);
         }
         else {
-            System.out.println("<Input cap of 4 exceeded.>");
+            DictionaryKeywords.ScanInput(new String[]{"!help"});
         }
         System.out.println("|");
     }
