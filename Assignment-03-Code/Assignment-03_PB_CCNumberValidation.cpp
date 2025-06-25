@@ -1,4 +1,12 @@
-bool isvalidcc(const string&);
+#include <iostream>
+#include <vector>
+#include <cctype>
+using namespace std;
+bool isvalidcc(const string& num) {
+	bool valid = false;
+	
+	return valid;
+}
 
 int main()
 {
@@ -20,9 +28,9 @@ int main()
 	vector<string>::iterator itr;
 
 	for (i = 1, itr = cardnumbers.begin(); itr != cardnumbers.end(); ++itr, i++) {
-		cout << setw(2)  << i << " " 
-			 << setw(17) << *itr 
-			 << ((isvalidcc(*itr)) ? " is valid" : " is not valid") << endl;
+		cout << setw(2) << i << " "
+			<< setw(17) << *itr
+			<< ((isvalidcc(*itr)) ? " is valid" : " is not valid") << endl;
 	}
 
 	return 0;

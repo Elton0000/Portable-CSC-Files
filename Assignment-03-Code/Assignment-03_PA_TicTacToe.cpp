@@ -1,10 +1,18 @@
 #include <iostream>
 using namespace std;
 
-bool isWon(char, char[][3]);
-bool isDraw(char[][3]);
-void displayBoard(char[][3]);
-void makeAMove(char[][3], char);
+bool isWon(char, char[][3]) {
+	return false;
+}
+bool isDraw(char[][3]) {
+	return false;
+}
+void displayBoard(char[][3]) {
+	cout << "hello";
+}
+void makeAMove(char[][3], char) {
+
+}
 
 int main() {
 	//
