@@ -5,8 +5,7 @@ using namespace std;
 bool isWon(char input, char board[][3]) {
 	//O = 79 // X = 88  // 5X, 4O = 756
 	bool won = false;
-	
-	
+	int winningNum = input * 3;
 	
 
 	return won;
@@ -39,7 +38,8 @@ void displayBoard(char board[][3]) {
 
 void makeAMove(char board[][3], char currentPlayer) {
 	int input[2];
-	cout << board[0];
+	int i = 'a';
+	cout << i << "\n";
 	cout << "Enter a row (0, 1, 2) for player " << currentPlayer << ": ";
 
 	while (!(cin >> input[0]) || (input[0] != 0 && input[0] != 1 && input[0] != 2)) {

@@ -1,10 +1,46 @@
 #include <iostream>
 #include <vector>
 #include <cctype>
+#include <iomanip>
 using namespace std;
-bool isvalidcc(const string& num) {
+bool isvalidcc(const string& num) { //special num 48
 	bool valid = false;
-	
+	int totalEvens = 0;
+	int totalOdds = 0;
+
+	for (int i = num.length() - 1; i > 0; i -= 2) {
+		int j  = num.at(i - 1) - 48;
+		switch(j) {
+			case 5: {
+				totalEvens += 1;
+				break;
+			}
+			case 6: {
+				totalEvens += 3;
+				break;
+			}
+			case 7: {
+				totalEvens += 5;
+				break;
+			}
+			case 8: {
+				totalEvens += 7;
+				break;
+			}
+			case 9: {
+				totalEvens += 9;
+				break;
+			}
+			default: {
+				totalEvens += j * 2;
+				break;
+			}
+		}
+		totalOdds += (num.at(i) - 48);
+	}
+	if ((totalEvens + totalOdds) % 10 == 0) {
+		valid = true;
+	}
 	return valid;
 }
 
