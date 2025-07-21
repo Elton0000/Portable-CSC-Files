@@ -1,5 +1,5 @@
 ﻿  FileName.cpp
-C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-03-Code\Project1\FileName.cpp(46,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-03-Code\Project1\FileName.cpp(47,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-03-Code\Project1\FileName.cpp(70,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-03-Code\Project1\FileName.cpp(44,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-03-Code\Project1\FileName.cpp(45,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-03-Code\Project1\FileName.cpp(68,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Project1.vcxproj -> C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-03-Code\Project1\x64\Debug\Project1.exe

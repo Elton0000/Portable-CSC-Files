@@ -17,7 +17,6 @@ void loadMessage() {
 void displayWelcome(map<string, multimap<string, string>> dictionary) {
 	// word -> part of speech -> definitions
 	int totalDefinitions = 0;
-	 
 	for (map<string, multimap<string, string>>::iterator itr = dictionary.begin(); itr != dictionary.end(); itr++) {
 //iterate through all words
 		for (auto p : itr->second) { //at every added definition, increment total definitions by 1
@@ -42,7 +41,6 @@ void loadDictionary(map<string, multimap<string, string>>& dictionary) {
 	//definitions are between -=>> and | or -=>> to last string of line
 	while (!ioFile.eof()) {
 		getline(ioFile, line);
-
 		int firstBar = line.find('|');
 		int firstArrow = line.find("-=>>");
 		size_t j = firstArrow;
@@ -91,21 +89,50 @@ string convertToLower(string& input) {
 		reword += static_cast<char>(tolower(input.at(i)));
 	}
 	input = reword;
+	
 	return input;
 }
 
-vector<string> splice(string input) {
+vector<string> split(string&& input) {
 	string word = "";
 	vector<string> userInputs = {};
 	int i, j;
-	for (i = 0; i < input.length(); i = 0) {
-		for (j = i; input.at(j) != ' '; j++) {
-			word += input.at(j);
+	if (input._Equal("")) {
+		userInputs.push_back("");
+	}
+	else {
+		for (i = 0; i < input.length(); i = 0) {
+			for (j = i; j < input.length() && input.at(j) != ' '; j++) {
+				word += input.at(j);
+			
+			}
+			userInputs.push_back(word);
+			word = "";
+			input = input.substr(j, input.length());
+			trim(input);
 		}
-		userInputs.push_back(word);
-		word = "";
-		input = input.substr(j, input.length());
-		trim(input);
+	}
+	return userInputs;
+}
+//	auto comp = [](const string a, const string compa) {return a > compa; };
+void commands(string command) {
+	if (command.length() == 0) {
+
+	}
+	else {
+		command = command.substr(1, command.length());
+	}
+	cout << "1. A search key -then 2. An optional part of speech -then \n3. An optional 'distinct' - then 4. An optional 'reverse'\n";
+}
+void processSearch(const map<string,multimap<string,string>> dictionary, vector<string> splitInputs) {
+	bool distinct = false, reverse = false;
+	//auto comp = [](const string a, const string compa) {return a > compa; };
+	//decltype(comp);
+
+	for (auto p : dictionary.find(splitInputs[0])->second) {
+		char first = toupper(splitInputs[0].at(0));
+		splitInputs[0] = first + splitInputs[0].substr(1, splitInputs[0].length());
+		cout << splitInputs[0] << " [" << p.first << "] : " << p.second << endl;
 	}
 }
 
@@ -113,28 +140,31 @@ void search(map<string,multimap<string,string>> dictionary) {
 	int searchCounter = 1;
 	map<string, multimap<string, string>>::iterator itr;
 	string input;
-	vector<string> splicedInputs = splice(convertToLower(input));
 	cout << "Search [" << searchCounter << "] : ";
-	while (!splicedInputs[0]._Equal("!Q")) {
+	vector<string> splitInputs = split(convertToLower(input));
+	while (!splitInputs[0]._Equal("!Q")) {
 		cout << "|\n";
-		itr = dictionary.find(splicedInputs[0]); //all words are saved as lowercase, need to change first characters to upper
-		if (itr == dictionary.end()) {
+		itr = dictionary.find(splitInputs[0]); //all words are saved as lowercase, need to change first characters to upper
+
+		if (splitInputs[0] == "" || splitInputs[0].at(0) == '!') {
+			
+			commands(splitInputs[0]);
+		}
+		else if (itr == dictionary.end()) {
 			cout << "<NOT FOUND> To be considered for the next release. Thank you.\n";
 		}
 		else {
-			for (auto p : dictionary.find(splicedInputs[0])->second) {
-				char first = toupper(splicedInputs[0].at(0));
-				splicedInputs[0] = first + splicedInputs[0].substr(1, splicedInputs[0].length());
-				cout << splicedInputs[0] << " [" << p.first << "] : " << p.second << endl;
-			}
+			processSearch(dictionary, splitInputs);
 		}
-		cout << "|\n";
+		cout << "|\n"; 
 		searchCounter++;
 		cout << "Search [" << searchCounter << "] : ";
+		splitInputs = split(convertToLower(input));	
 	}
 	cout << "\n-----THANK YOU-----";
 }
 //../Data.CS.SFSU.txt
+
 int main() {
 	 // char '|' to signal part of speech, string "-=>>" to signal a definition, 1 line 1 word + its definitions
 	//each word has: 1 associated name, x parts of speech, x definitions for that part of speech
