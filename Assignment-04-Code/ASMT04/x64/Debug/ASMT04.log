@@ -1,4 +1,19 @@
 ﻿  LinkedBag340.cpp
-LinkedBagClient340.obj : error LNK2019: unresolved external symbol "public: __cdecl LinkedBag<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >::LinkedBag<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >(void)" (??0?$LinkedBag@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@@QEAA@XZ) referenced in function "class std::unique_ptr<class LinkedBag<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >,struct std::default_delete<class LinkedBag<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > > > __cdecl std::make_unique<class LinkedBag<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >,0>(void)" (??$make_unique@V?$LinkedBag@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@@$$V$0A@@std@@YA?AV?$unique_ptr@V?$LinkedBag@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@@U?$default_delete@V?$LinkedBag@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@@@std@@@0@XZ)
-MSVCRTD.lib(exe_winmain.obj) : error LNK2019: unresolved external symbol WinMain referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-04-Code\x64\Debug\ASMT04.exe : fatal error LNK1120: 2 unresolved externals
+  LinkedBagClient340.cpp
+C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-04-Code\LinkedBag340.cpp(95,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  (compiling source file 'LinkedBagClient340.cpp')
+      C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-04-Code\LinkedBag340.cpp(95,13):
+      the template instantiation context (the oldest one first) is
+          C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-04-Code\LinkedBagClient340.cpp(28,18):
+          see reference to class template instantiation 'LinkedBag<std::string>' being compiled
+          C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-04-Code\LinkedBag340.cpp(93,50):
+          while compiling class template member function 'ItemType LinkedBag<ItemType>::removeRandom340(void)'
+          with
+          [
+              ItemType=std::string
+          ]
+              C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-04-Code\LinkedBagClient340.cpp(110,40):
+              see the first reference to 'LinkedBag<std::string>::removeRandom340' in 'main'
+  
+  Generating Code...
+  ASMT04.vcxproj -> C:\Users\turbo\Desktop\CS_ASSIGNMENTS\Moving Files with GitHub\Assignment-04-Code\x64\Debug\ASMT04.exe
